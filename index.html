@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>徳永悠二建築設計事務所 | Yuji Tokunaga Architects</title>
+<meta name="description" content="徳永悠二建築設計事務所（岐阜県岐阜市）。住宅・店舗・公共施設の新築、内装設計、リフォーム・リノベーションの設計・監理を行っています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-sub: #f6f6f4;
+    --text: #222222;
+    --text-sub: #555555;
+    --line: #e2e2e0;
+    --accent: #6b5f4d;
+    --header-h: 72px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ---------- Header ---------- */
+  .header {
+    position: fixed; inset: 0 0 auto 0;
+    height: var(--header-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    transition: box-shadow .3s;
+  }
+  .header.scrolled { box-shadow: 0 1px 0 var(--line); }
+  .logo { line-height: 1.4; }
+  .logo .ja { display: block; font-size: 15px; font-weight: 400; letter-spacing: 0.12em; }
+  .logo .en { display: block; font-family: "Cormorant Garamond", serif; font-size: 12px; color: var(--text-sub); letter-spacing: 0.14em; }
+  .nav ul { display: flex; gap: 36px; }
+  .nav a {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px; letter-spacing: 0.16em; text-transform: lowercase;
+    position: relative; padding: 4px 0;
+  }
+  .nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--text); transition: width .3s;
+  }
+  .nav a:hover::after { width: 100%; }
+  .menu-btn {
+    display: none; width: 32px; height: 32px; position: relative;
+    background: none; border: 0; cursor: pointer;
+  }
+  .menu-btn span {
+    position: absolute; left: 4px; right: 4px; height: 1px; background: var(--text);
+    transition: transform .3s, opacity .3s;
+  }
+  .menu-btn span:nth-child(1) { top: 11px; }
+  .menu-btn span:nth-child(2) { top: 20px; }
+  .menu-btn.open span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+  .menu-btn.open span:nth-child(2) { transform: translateY(-4.5px) rotate(-45deg); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: var(--header-h) 24px 0;
+    position: relative;
+  }
+  .hero-mark {
+    width: 1px; height: 80px; background: var(--text); margin-bottom: 48px;
+    transform-origin: top; animation: drawLine 1.4s ease forwards;
+  }
+  .hero h1 { font-weight: 400; font-size: clamp(22px, 4vw, 34px); letter-spacing: 0.3em; line-height: 1.6; }
+  .hero .en {
+    margin-top: 16px; font-family: "Cormorant Garamond", serif;
+    font-size: clamp(14px, 1.8vw, 18px); color: var(--text-sub); letter-spacing: 0.24em;
+  }
+  .hero .catch { margin-top: 56px; font-size: 13px; color: var(--text-sub); letter-spacing: 0.2em; }
+  .scroll {
+    position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-family: "Cormorant Garamond", serif; font-size: 12px; letter-spacing: 0.2em; color: var(--text-sub);
+  }
+  .scroll::after {
+    content: ""; display: block; width: 1px; height: 40px; margin: 8px auto 0;
+    background: var(--text-sub); animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes drawLine { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 140px 40px; }
+  section.block.alt { background: var(--bg-sub); }
+  .inner { max-width: 960px; margin: 0 auto; }
+  .sec-title { margin-bottom: 64px; }
+  .sec-title .en {
+    display: block; font-family: "Cormorant Garamond", serif; font-weight: 400;
+    font-size: 36px; letter-spacing: 0.16em; line-height: 1.2; text-transform: lowercase;
+  }
+  .sec-title .ja { display: block; margin-top: 8px; font-size: 12px; color: var(--text-sub); letter-spacing: 0.2em; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; }
+  .about-name .name { font-size: 22px; font-weight: 400; letter-spacing: 0.24em; }
+  .about-name .name-en { font-family: "Cormorant Garamond", serif; color: var(--text-sub); letter-spacing: 0.16em; margin-top: 4px; }
+  .about-name .role { margin-top: 24px; font-size: 13px; color: var(--text-sub); }
+  .license { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.8; }
+  .license dt { font-size: 11px; color: var(--text-sub); letter-spacing: 0.16em; }
+  .license dd { margin: 2px 0 16px; }
+  .license dd:last-child { margin-bottom: 0; }
+  .timeline li { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .timeline li:first-child { border-top: 1px solid var(--line); }
+  .year { font-family: "Cormorant Garamond", serif; font-size: 17px; color: var(--accent); }
+
+  /* Service */
+  .service-list { counter-reset: svc; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; list-style: none; }
+  .service-list li { counter-increment: svc; display: grid; grid-template-columns: 48px 1fr; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .service-list li::before { content: counter(svc, decimal-leading-zero); font-family: "Cormorant Garamond", serif; font-size: 17px; color: var(--accent); }
+  .exp { margin-top: 80px; }
+  .exp h3 { font-size: 14px; font-weight: 400; letter-spacing: 0.16em; margin-bottom: 24px; }
+  .exp-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .exp-list li { background: var(--bg); border: 1px solid var(--line); padding: 16px 20px; line-height: 1.7; }
+  .exp-list span { display: block; font-size: 12px; color: var(--text-sub); }
+
+  /* Works */
+  .works-group + .works-group { margin-top: 72px; }
+  .works-group h3 { font-size: 14px; font-weight: 400; letter-spacing: 0.16em; margin-bottom: 24px; }
+  .works-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  .work { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .work .title { font-weight: 400; }
+  .work .place { font-size: 12px; color: var(--text-sub); margin-left: 8px; }
+  .work .note { display: block; font-size: 12px; color: var(--text-sub); line-height: 1.6; margin-top: 2px; }
+  .work-open {
+    font: inherit; color: inherit; letter-spacing: inherit; text-align: left;
+    background: none; border: 0; padding: 0; cursor: pointer;
+    text-decoration: underline 1px var(--text-sub); text-underline-offset: 6px;
+    transition: color .3s, text-decoration-color .3s;
+  }
+  .work-open:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .photo-mark {
+    display: inline-block; margin-left: 8px; padding: 0 6px;
+    font-family: "Cormorant Garamond", serif; font-size: 11px; line-height: 1.6;
+    color: var(--text-sub); border: 1px solid var(--line); vertical-align: 2px;
+  }
+
+  /* Blog */
+  .blog-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .blog-list button {
+    display: flex; flex-direction: column; justify-content: flex-start;
+    width: 100%; height: 100%; padding: 0; text-align: left;
+    font: inherit; color: inherit; letter-spacing: inherit;
+    background: var(--bg); border: 1px solid var(--line); cursor: pointer; transition: border-color .3s;
+  }
+  .blog-list button:hover { border-color: var(--text); }
+  .blog-thumb { aspect-ratio: 3 / 2; background: var(--bg-sub); overflow: hidden; }
+  .blog-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .blog-text { display: block; padding: 20px 24px 24px; }
+  .blog-date { display: block; font-size: 13px; color: var(--text-sub); letter-spacing: 0.1em; }
+  .blog-title { display: block; margin-top: 6px; font-size: 16px; line-height: 1.7; }
+  .blog-excerpt { display: block; margin-top: 10px; font-size: 13px; line-height: 1.8; color: var(--text-sub); }
+  .blog-empty { color: var(--text-sub); }
+  .blog-more-wrap { text-align: center; }
+  .blog-more {
+    margin-top: 40px; padding: 14px 40px; background: none; border: 1px solid var(--text);
+    font: inherit; font-size: 13px; letter-spacing: 0.16em; color: var(--text); cursor: pointer;
+    transition: background .3s, color .3s;
+  }
+  .blog-more:hover { background: var(--text); color: var(--bg); }
+  .article-inner { max-width: 760px; }
+  .article-title { font-size: 22px; font-weight: 400; letter-spacing: 0.08em; line-height: 1.6; margin-top: 4px; }
+  .article-body { font-size: 15px; line-height: 2.1; }
+  .article-body p + p { margin-top: 1.4em; }
+  .article-body img { display: block; width: 100%; height: auto; margin: 32px 0; }
+  .article-body img.inline { max-width: 360px; margin: 24px 0 8px; }
+
+  /* Gallery */
+  .gallery {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(255,255,255,0.98);
+    overflow-y: auto; overscroll-behavior: contain;
+    opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s;
+  }
+  .gallery.open { opacity: 1; visibility: visible; }
+  .gallery-inner { max-width: 1080px; margin: 0 auto; padding: 32px 40px 64px; }
+  .gallery-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 32px; }
+  .gallery-title { font-size: 18px; font-weight: 400; letter-spacing: 0.16em; line-height: 1.6; }
+  .gallery-sub { font-size: 12px; color: var(--text-sub); }
+  .close-btn {
+    flex: none; width: 44px; height: 44px; position: relative;
+    background: none; border: 0; cursor: pointer;
+  }
+  .close-btn::before, .close-btn::after {
+    content: ""; position: absolute; left: 10px; right: 10px; top: 50%; height: 1px; background: var(--text);
+  }
+  .close-btn::before { transform: rotate(45deg); }
+  .close-btn::after { transform: rotate(-45deg); }
+  .close-btn.light::before, .close-btn.light::after { background: #fff; }
+  /* 写真は切らずに表示。2枚ずつの行で、高さがそろうよう横幅を写真の縦横比で配分 */
+  .gallery-grid { display: flex; flex-direction: column; gap: 16px; }
+  .gallery-row { display: flex; gap: 16px; align-items: flex-start; }
+  /* 奇数枚のときの最後の1枚は中央に置き、大きくなりすぎないよう高さを抑える */
+  .gallery-row.single { justify-content: center; }
+  .gallery-row.single button { flex: 0 1 auto !important; }
+  .gallery-row.single img { width: auto; max-width: 100%; max-height: 70vh; }
+  .gallery-grid button { display: block; flex: 1 1 0; min-width: 0; padding: 0; border: 0; background: var(--bg-sub); cursor: zoom-in; overflow: hidden; }
+  .gallery-grid img { width: 100%; height: auto; display: block; transition: transform .6s ease; }
+  /* 3枚レイアウト（横幅はJSで計算。計算前の目安として 64% / 36%） */
+  .gallery-trio { display: flex; column-gap: 16px; align-items: flex-start; }
+  .trio-col { display: flex; flex-direction: column; gap: 16px; flex: none; width: 64%; }
+  .trio-side { flex: none; width: calc(36% - 16px); }
+  .gallery-trio button { flex: none !important; width: 100%; }
+  .gallery-grid button:hover img { transform: scale(1.03); }
+  .gallery-credit { margin-top: 24px; font-size: 12px; color: var(--text-sub); }
+
+  /* Viewer (1枚を大きく表示) */
+  .viewer {
+    position: fixed; inset: 0; z-index: 300; background: rgba(20,20,20,0.96);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+  }
+  .viewer.open { opacity: 1; visibility: visible; }
+  .viewer img { max-width: calc(100vw - 160px); max-height: calc(100vh - 120px); object-fit: contain; display: block; }
+  .viewer .close-btn { position: absolute; top: 16px; right: 16px; }
+  .viewer-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 56px; height: 56px; background: none; border: 0; cursor: pointer;
+  }
+  .viewer-nav::before {
+    content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 14px;
+    border-top: 1px solid #fff; border-left: 1px solid #fff;
+  }
+  .viewer-nav.prev { left: 16px; }
+  .viewer-nav.prev::before { transform: translate(-30%, -50%) rotate(-45deg); }
+  .viewer-nav.next { right: 16px; }
+  .viewer-nav.next::before { transform: translate(-70%, -50%) rotate(135deg); }
+  .viewer-count {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    font-family: "Cormorant Garamond", serif; color: #bbb; font-size: 14px; letter-spacing: 0.2em;
+  }
+
+  .works-caption { margin-top: 32px; font-size: 12px; color: var(--text-sub); }
+
+  /* Fee */
+  .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .fee-card { background: var(--bg); border: 1px solid var(--line); padding: 40px 32px; }
+  .fee-card h3 { word-break: keep-all; font-size: 16px; font-weight: 400; letter-spacing: 0.16em; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .fee-rate { margin-top: 24px; font-size: 13px; color: var(--text-sub); }
+  .fee-rate strong { display: block; font-weight: 400; font-size: 28px; color: var(--text); letter-spacing: 0.02em; line-height: 1.5; margin-top: 4px; }
+  .fee-rate strong small { font-size: 16px; margin-left: 2px; }
+  .fee-scope { margin-top: 20px; font-size: 13px; color: var(--text-sub); }
+  /* 3枚並びのとき、見出しの下線と料率の高さをカード間でそろえる */
+  @media (min-width: 961px) {
+    .fee-grid { grid-template-rows: repeat(3, auto); row-gap: 0; }
+    .fee-card { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+  }
+  .fee-extra { margin-top: 48px; padding: 40px; border: 1px solid var(--line); background: var(--bg); }
+  .fee-extra h3 { font-size: 14px; font-weight: 400; letter-spacing: 0.16em; margin-bottom: 16px; }
+  .fee-extra ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 32px; font-size: 13px; }
+  .fee-extra li::before { content: "— "; color: var(--text-sub); }
+  .fee-note { margin-top: 24px; font-size: 12px; color: var(--text-sub); }
+
+  /* Flow */
+  .flow { counter-reset: step; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .flow li { counter-increment: step; position: relative; padding: 32px 28px; border: 1px solid var(--line); background: var(--bg); }
+  .flow li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block; font-family: "Cormorant Garamond", serif; font-size: 32px; color: var(--accent); line-height: 1;
+  }
+  .flow .step { display: block; margin-top: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 400; letter-spacing: 0.12em; }
+  .flow .desc { display: block; margin-top: 14px; font-size: 14px; color: var(--text-sub); line-height: 1.9; }
+  /* 最初の「ご相談（無料）」は横幅いっぱいで目立たせる */
+  .flow li.free { grid-column: 1 / -1; border-color: var(--accent); }
+  .flow .step em {
+    font-style: normal; display: inline-block; margin-left: 12px; padding: 0 10px;
+    font-size: 13px; line-height: 1.8; color: #fff; background: var(--accent); vertical-align: 2px;
+  }
+  .flow-note { margin-top: 48px; font-size: 13px; color: var(--text-sub); }
+
+  /* Contact */
+  .contact-lead { margin: -24px 0 48px; font-size: 17px; letter-spacing: 0.12em; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .contact-info dt { font-size: 12px; color: var(--text-sub); letter-spacing: 0.16em; margin-top: 24px; }
+  .contact-info dt:first-child { margin-top: 0; }
+  .contact-info dd { margin-top: 4px; }
+  .mail-text { border-bottom: 1px solid var(--line); transition: border-color .3s; word-break: break-all; }
+  .mail-text:hover { border-color: var(--text); }
+  .mail-btn {
+    display: inline-block; margin-top: 16px; padding: 14px 40px; border: 1px solid var(--text);
+    font-size: 13px; letter-spacing: 0.16em; transition: background .3s, color .3s;
+  }
+  .mail-btn:hover { background: var(--text); color: var(--bg); }
+  .sns { display: flex; gap: 16px; margin-top: 8px; }
+  .sns a {
+    width: 40px; height: 40px; display: grid; place-items: center;
+    border: 1px solid var(--line); border-radius: 50%; transition: border-color .3s;
+  }
+  .sns a:hover { border-color: var(--text); }
+  .sns svg { width: 16px; height: 16px; fill: var(--text); }
+  .map { width: 100%; aspect-ratio: 4 / 3; border: 0; filter: grayscale(1); }
+
+  /* Footer */
+  .footer { padding: 48px 40px; text-align: center; border-top: 1px solid var(--line); }
+  .footer small { font-family: "Cormorant Garamond", serif; font-size: 13px; color: var(--text-sub); letter-spacing: 0.14em; }
+
+  /* Fade-in */
+  .fade { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+  .fade.show { opacity: 1; transform: none; }
+
+  /* ---------- Tablet ---------- */
+  @media (max-width: 960px) {
+    .fee-grid { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: repeat(2, 1fr); }
+    .nav ul { gap: 20px; }
+    .blog-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Smartphone ---------- */
+  @media (max-width: 768px) {
+    :root { --header-h: 60px; }
+    body { font-size: 14px; }
+    .header { padding: 0 20px; }
+    .menu-btn { display: block; }
+    .nav {
+      /* ヘッダーの backdrop-filter が基準になるため高さを明示 */
+      position: fixed; top: var(--header-h); left: 0; right: 0;
+      height: calc(100vh - var(--header-h)); height: calc(100svh - var(--header-h));
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+    }
+    .nav.open { opacity: 1; visibility: visible; }
+    .nav ul { flex-direction: column; align-items: center; gap: 28px; }
+    .nav a { font-size: 22px; }
+    .hero .catch { letter-spacing: 0.08em; }
+    section.block { padding: 96px 20px; }
+    .sec-title { margin-bottom: 44px; }
+    .sec-title .en { font-size: 30px; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .works-list, .service-list { grid-template-columns: 1fr; }
+    .service-list li { grid-template-columns: 40px 1fr; }
+    .exp { margin-top: 56px; }
+    .exp-list { grid-template-columns: 1fr; gap: 0; }
+    .exp-list li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+      background: none; border: 0; border-bottom: 1px solid var(--line); padding: 12px 0;
+    }
+    .exp-list li:first-child { border-top: 1px solid var(--line); }
+    .exp-list span { text-align: right; }
+    .work, .timeline li { grid-template-columns: 52px 1fr; gap: 12px; }
+    .work .place { display: block; margin-left: 0; }
+    .gallery-inner { padding: 20px 20px 48px; }
+    .gallery-grid, .gallery-row { gap: 12px; }
+    .gallery-row { flex-direction: column; align-items: stretch; }
+    .gallery-row.single img { width: 100%; max-height: none; }
+    .blog-list { grid-template-columns: 1fr; gap: 16px; }
+    .article-title { font-size: 18px; }
+    .article-body img.inline { max-width: 70%; }
+    .gallery-trio { flex-direction: column; row-gap: 12px; }
+    .trio-col { gap: 12px; }
+    .trio-col, .trio-side { width: 100%; }
+    .gallery-grid button { flex: none !important; }
+    .viewer img { max-width: 100vw; max-height: calc(100vh - 160px); }
+    .viewer-nav { top: auto; bottom: 8px; transform: none; }
+    .viewer-count { bottom: 26px; }
+    .fee-card { padding: 32px 24px; }
+    .fee-extra { padding: 28px 24px; }
+    .fee-extra ul { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; gap: 0; }
+    .flow li { display: grid; grid-template-columns: 52px 1fr; padding: 16px 0; border: 0; border-bottom: 1px solid var(--line); background: none; }
+    .flow li:first-child { border-top: 1px solid var(--line); }
+    .flow li.free { border-color: var(--line); }
+    .flow .step em { margin-left: 8px; font-size: 12px; }
+    .contact-lead { margin: -16px 0 32px; font-size: 15px; }
+    .flow li::before { grid-row: span 2; font-size: 24px; line-height: 1.4; }
+    .flow .step { margin-top: 0; padding-bottom: 0; border-bottom: 0; font-size: 14px; }
+    .flow .desc { margin-top: 2px; font-size: 12px; line-height: 1.8; }
+    .footer { padding: 36px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade { opacity: 1; transform: none; transition: none; }
+    .hero-mark, .scroll::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <a href="#top" class="logo">
+    <span class="ja">徳永悠二建築設計事務所</span>
+    <span class="en">Yuji Tokunaga Architects</span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span>
+  </button>
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="#service">service</a></li>
+      <li><a href="#works">works</a></li>
+      <li><a href="#flow">flow</a></li>
+      <li><a href="#fee">fee</a></li>
+      <li><a href="#blog">blog</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-mark"></div>
+    <h1>徳永悠二建築設計事務所</h1>
+    <p class="en">Yuji Tokunaga Architects</p>
+    <p class="catch">岐阜を拠点に、建築の設計・監理を行っています</p>
+    <a href="#service" class="scroll">scroll</a>
+  </section>
+
+  <!-- Service -->
+  <section class="block alt" id="service">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">service</span>
+        <span class="ja">業務内容</span>
+      </div>
+      <ol class="service-list fade">
+        <li>建築計画の基本構想</li>
+        <li>建築設計および工事監理</li>
+        <li>インテリアの設計および工事監理</li>
+        <li>まちづくり、ランドスケープに関する調査、設計</li>
+        <li>家具、什器、プロダクトのデザイン</li>
+        <li>前各号に附帯する一切の業務</li>
+      </ol>
+
+      <div class="exp fade">
+        <h3>担当・設計・工事監理の経験がある用途</h3>
+        <ul class="exp-list">
+          <li>個人住宅<span>木造・鉄筋コンクリート造</span></li>
+          <li>別荘<span>木造</span></li>
+          <li>幼稚園<span>鉄骨造</span></li>
+          <li>集合住宅<span>鉄筋コンクリート造</span></li>
+          <li>事務所ビル<span>鉄筋コンクリート造</span></li>
+          <li>公衆浴場<span>木造</span></li>
+          <li>公衆トイレ<span>木造</span></li>
+          <li>演芸場<span>木造</span></li>
+          <li>カフェ<span>木造</span></li>
+          <li>飲食店<span>鉄骨造</span></li>
+          <li>公園、東屋<span>木造</span></li>
+          <li>スキー場センターハウス<span>木造＋鉄筋コンクリート造</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Works -->
+  <section class="block" id="works">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">works</span>
+        <span class="ja">主な担当プロジェクト</span>
+      </div>
+
+      <div class="works-group fade">
+        <h3>独立後（K計画事務所からの委託業務）</h3>
+        <ul class="works-list">
+          <li class="work"><span class="year">2026</span><span><button type="button" class="title work-open" data-photos="resthouse">天狗山レストハウス<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">群馬</span></span></li>
+        </ul>
+      </div>
+
+      <div class="works-group fade">
+        <h3>K計画事務所在籍時</h3>
+        <ul class="works-list">
+          <li class="work"><span class="year">2007</span><span><button type="button" class="title work-open" data-photos="shirobara">白ばら幼稚園<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">福島</span></span></li>
+          <li class="work"><span class="year">2009</span><span><button type="button" class="title work-open" data-photos="thouse">THOUSE<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">京都</span></span></li>
+          <li class="work"><span class="year">2013</span><span><button type="button" class="title work-open" data-photos="sugar">シュガーマトリックス本社ビル<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">東京</span></span></li>
+          <li class="work"><span class="year">2015</span><span><button type="button" class="title work-open" data-photos="netsunoyu">熱乃湯<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">群馬</span><span class="note">新建築 2016年9月号 掲載</span></span></li>
+          <li class="work"><span class="year">2020</span><span><button type="button" class="title work-open" data-photos="jizo">草津温泉 地蔵地区周辺再整備<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">群馬</span><span class="note">新建築 2021年12月号 掲載</span></span></li>
+          <li class="work"><span class="year">2021</span><span><button type="button" class="title work-open" data-photos="oogiya">オオギヤハウス<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">東京</span></span></li>
+          <li class="work"><span class="year">2023</span><span><button type="button" class="title work-open" data-photos="tenbo">天狗山展望ハウス<span class="photo-mark" aria-hidden="true">photo</span></button><span class="place">群馬</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section class="block alt" id="flow">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">flow</span>
+        <span class="ja">業務の流れ</span>
+      </div>
+      <ol class="flow fade">
+        <li class="free"><span class="step">ご相談<em>無料</em></span><span class="desc">ご相談は無料です。計画の内容やご予算、スケジュールなど、まずはお気軽にお聞かせください。</span></li>
+        <li><span class="step">現地調査</span><span class="desc">敷地や既存建物を確認し、法規・周辺環境を調べます。</span></li>
+        <li><span class="step">基本構想</span><span class="desc">ご要望を伺い、計画の方向性と全体像をまとめます。</span></li>
+        <li><span class="step">基本設計</span><span class="desc">平面・立面・断面などで、建物の骨格を決めていきます。</span></li>
+        <li><span class="step">実施設計</span><span class="desc">工事に必要な詳細図面と仕様を作成します。</span></li>
+        <li><span class="step">確認申請</span><span class="desc">建築確認申請の手続きを行います。</span></li>
+        <li><span class="step">工事監理</span><span class="desc">図面どおりに工事が進んでいるかを現場で確認します。</span></li>
+      </ol>
+      <p class="flow-note fade">お支払いのタイミングは、各段階に合わせてご案内します。詳しくはお問い合わせください。</p>
+    </div>
+  </section>
+
+  <!-- Fee -->
+  <section class="block" id="fee">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">fee</span>
+        <span class="ja">設計・監理料</span>
+      </div>
+
+      <div class="fee-grid">
+        <div class="fee-card fade">
+          <h3>新築</h3>
+          <p class="fee-rate">総工費の<strong>10〜13<small>%</small></strong></p>
+          <p class="fee-scope">基本設計・実施設計・工事現場監理</p>
+        </div>
+        <div class="fee-card fade">
+          <h3>内装設計</h3>
+          <p class="fee-rate">総工費の<strong>15<small>%程度</small></strong></p>
+          <p class="fee-scope">設計・工事現場監理</p>
+        </div>
+        <div class="fee-card fade">
+          <h3>リフォーム・<wbr>リノベーション</h3>
+          <p class="fee-rate">総工費の<strong>15〜20<small>%程度</small></strong></p>
+        </div>
+      </div>
+
+      <div class="fee-extra fade">
+        <h3>別途必要となる費用</h3>
+        <ul>
+          <li>敷地測量・地盤調査費</li>
+          <li>確認申請手数料・完了検査手数料</li>
+          <li>構造設計・設備設計費（規模による）</li>
+          <li>パース作成費</li>
+          <li>交通費・宿泊費</li>
+        </ul>
+        <p class="fee-note">※ 金額は目安です。計画の内容・規模により変わりますので、お気軽にご相談ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="block alt" id="blog">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">blog</span>
+        <span class="ja">ブログ</span>
+      </div>
+      <ul class="blog-list fade" id="blogList"></ul>
+      <p class="blog-empty" id="blogEmpty" hidden>記事は準備中です。</p>
+      <div class="blog-more-wrap"><button type="button" class="blog-more" id="blogMore" hidden>すべての記事を見る</button></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">about</span>
+        <span class="ja">プロフィール</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-name fade">
+          <p class="name">徳永 悠二</p>
+          <p class="name-en">Yuji Tokunaga</p>
+          <p class="role">徳永悠二建築設計事務所 代表</p>
+          <dl class="license">
+            <dt>資格</dt>
+            <dd>一級建築士<br>国土交通大臣登録 第359610号</dd>
+            <dt>事務所登録</dt>
+            <dd>一級建築士事務所<br>岐阜県知事登録 第12813号</dd>
+          </dl>
+        </div>
+        <ul class="timeline fade">
+          <li><span class="year">1981</span><span>山口県生まれ</span></li>
+          <li><span class="year">2004</span><span>東京理科大学 理工学部 建築学科 卒業</span></li>
+          <li><span class="year">2006</span><span>東京理科大学大学院 理工学研究科 建築学専攻 修士課程修了（初見研究室）</span></li>
+          <li><span class="year">2006</span><span>株式会社K計画事務所（–2023）</span></li>
+          <li><span class="year">2023</span><span>徳永悠二建築設計事務所 設立</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="block alt" id="contact">
+    <div class="inner">
+      <div class="sec-title fade">
+        <span class="en">contact</span>
+        <span class="ja">お問い合わせ</span>
+      </div>
+      <p class="contact-lead fade">お気軽にご相談ください。</p>
+      <div class="contact-grid">
+        <dl class="contact-info fade">
+          <dt>事務所</dt>
+          <dd>徳永悠二建築設計事務所</dd>
+          <dt>所在地</dt>
+          <dd>〒500-8868<br>岐阜県岐阜市光明町2-9-1 グランコート21 302号<br>JR岐阜駅より徒歩15分</dd>
+          <dt>メール</dt>
+          <dd>
+            <a class="mail-text" href="mailto:yuyutokunaga1981@gmail.com">yuyutokunaga1981@gmail.com</a><br>
+            <a class="mail-btn" href="mailto:yuyutokunaga1981@gmail.com">メールでお問い合わせ</a>
+          </dd>
+          <dt>SNS</dt>
+          <dd class="sns">
+            <a href="https://www.instagram.com/yt.gifu/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+            </a>
+          </dd>
+        </dl>
+        <iframe class="map fade" title="事務所の地図"
+          src="https://maps.google.com/maps?q=岐阜県岐阜市光明町2-9-1&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ブログ記事（タイトルをクリックで表示） -->
+<div class="gallery" id="article" role="dialog" aria-modal="true" aria-labelledby="articleTitle">
+  <div class="gallery-inner article-inner">
+    <div class="gallery-head">
+      <div>
+        <p class="gallery-sub" id="articleDate"></p>
+        <h2 class="article-title" id="articleTitle"></h2>
+      </div>
+      <button type="button" class="close-btn" id="articleClose" aria-label="閉じる"></button>
+    </div>
+    <div class="article-body" id="articleBody"></div>
+  </div>
+</div>
+
+<!-- 作品写真（プロジェクト名をクリックで表示） -->
+<div class="gallery" id="gallery" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+  <div class="gallery-inner">
+    <div class="gallery-head">
+      <div>
+        <p class="gallery-title" id="galleryTitle"></p>
+        <p class="gallery-sub" id="gallerySub"></p>
+      </div>
+      <button type="button" class="close-btn" id="galleryClose" aria-label="閉じる"></button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="写真の拡大表示">
+  <img id="viewerImg" alt="">
+  <button type="button" class="close-btn light" id="viewerClose" aria-label="拡大表示を閉じる"></button>
+  <button type="button" class="viewer-nav prev" id="viewerPrev" aria-label="前の写真"></button>
+  <button type="button" class="viewer-nav next" id="viewerNext" aria-label="次の写真"></button>
+  <p class="viewer-count" id="viewerCount"></p>
+</div>
+
+<footer class="footer">
+  <small>&copy; <span id="year"></span> Yuji Tokunaga Architects</small>
+</footer>
+
+<script>
+  // ヘッダーの影
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // スマホメニュー
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  const setMenu = (open) => {
+    menuBtn.classList.toggle('open', open);
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  // スクロールでふわっと表示
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // 作品写真：写真を差し替えるときは images フォルダの同じ名前のファイルを入れ替えてください
+  // 写真を差し替えたらこの数字を変える（ブラウザに残った古い写真を使わせないため）
+  const PHOTO_VERSION = '20261112';
+  const projects = {
+    shirobara: { title: '白ばら幼稚園', sub: '2007　福島', photos: ['shirobara-1', 'shirobara-2', 'shirobara-3', 'shirobara-4'] },
+    thouse:    { title: 'THOUSE', sub: '2009　京都', photos: ['thouse-1', 'thouse-2', 'thouse-3', 'thouse-4'] },
+    sugar:     { title: 'シュガーマトリックス本社ビル', sub: '2013　東京', photos: ['sugar-1', 'sugar-2', 'sugar-3', 'sugar-4'] },
+    oogiya:    { title: 'オオギヤハウス', sub: '2021　東京', photos: ['oogiya-1', 'oogiya-2', 'oogiya-3', 'oogiya-4'] },
+    netsunoyu: { title: '熱乃湯', sub: '2015　群馬', photos: ['netsunoyu-1', 'netsunoyu-2', 'netsunoyu-3'], layout: 'trio' },
+    jizo:      { title: '草津温泉 地蔵地区周辺再整備', sub: '2020　群馬', photos: ['jizo-1', 'jizo-2', 'jizo-3', 'jizo-4', 'jizo-5', 'jizo-6', 'jizo-7'] },
+    tenbo:     { title: '天狗山展望ハウス', sub: '2023　群馬', photos: ['tenbo-1', 'tenbo-2', 'tenbo-3', 'tenbo-4', 'tenbo-5'] },
+    resthouse: { title: '天狗山レストハウス', sub: '2026　群馬', photos: ['resthouse-1', 'resthouse-2', 'resthouse-3', 'resthouse-4'] },
+  };
+  const gallery = document.getElementById('gallery');
+  const grid = document.getElementById('galleryGrid');
+  const viewer = document.getElementById('viewer');
+  const viewerImg = document.getElementById('viewerImg');
+  let current = null, index = 0, opener = null;
+
+  const lockScroll = (lock) => { document.body.style.overflow = lock ? 'hidden' : ''; };
+
+  const openGallery = (key, btn) => {
+    current = projects[key];
+    opener = btn;
+    document.getElementById('galleryTitle').textContent = current.title;
+    document.getElementById('gallerySub').textContent = current.sub;
+    const cell = (name, i) =>
+      `<button type="button" data-i="${i}" aria-label="${current.title} 写真${i + 1}を拡大"><img src="images/${name}.jpg?v=${PHOTO_VERSION}" alt="${current.title} 写真${i + 1}"></button>`;
+    let html = '';
+    if (current.layout === 'trio') {
+      // 横長2枚を左に積み、縦長1枚を右に置く
+      const p = current.photos;
+      html = `<div class="gallery-trio"><div class="trio-col">${cell(p[0], 0)}${cell(p[1], 1)}</div><div class="trio-side">${cell(p[2], 2)}</div></div>`;
+    } else {
+      for (let i = 0; i < current.photos.length; i += 2) {
+        const pair = current.photos.slice(i, i + 2);
+        html += `<div class="gallery-row${pair.length === 1 ? ' single' : ''}">${pair.map((n, j) => cell(n, i + j)).join('')}</div>`;
+      }
+    }
+    grid.innerHTML = html;
+    if (current.layout === 'trio') {
+      Promise.all([...grid.querySelectorAll('img')].map(img => img.decode().catch(() => {}))).then(layoutTrio);
+    } else {
+      // 読み込んだ写真の縦横比に合わせて横幅を配分（行内で高さがそろう）
+      grid.querySelectorAll('img').forEach(img => {
+        const fit = () => { img.parentElement.style.flexGrow = img.naturalWidth / img.naturalHeight; };
+        img.complete && img.naturalWidth ? fit() : img.addEventListener('load', fit, { once: true });
+      });
+    }
+    gallery.scrollTop = 0;
+    gallery.classList.add('open');
+    lockScroll(true);
+    document.getElementById('galleryClose').focus();
+  };
+  // 3枚レイアウト：左の2枚を積んだ高さと右の1枚の高さが一致する横幅を計算する
+  const layoutTrio = () => {
+    const trio = grid.querySelector('.gallery-trio');
+    if (!trio) return;
+    const col = trio.querySelector('.trio-col');
+    const side = trio.querySelector('.trio-side');
+    if (window.innerWidth <= 768) { col.style.width = side.style.width = ''; return; }
+    const ratio = img => img.naturalWidth / img.naturalHeight;
+    const [a1, a2, ap] = [...trio.querySelectorAll('img')].map(ratio);
+    if (!a1 || !a2 || !ap) return;
+    const g = parseFloat(getComputedStyle(trio).columnGap) || 0;
+    const total = trio.clientWidth;
+    const colW = (total - g - ap * g) / (ap * (1 / a1 + 1 / a2) + 1);
+    col.style.width = `${colW}px`;
+    side.style.width = `${total - g - colW}px`;
+  };
+  window.addEventListener('resize', () => { if (gallery.classList.contains('open')) layoutTrio(); });
+
+  const closeGallery = () => {
+    gallery.classList.remove('open');
+    lockScroll(false);
+    if (opener) opener.focus();
+  };
+  const showPhoto = (i) => {
+    index = (i + current.photos.length) % current.photos.length;
+    viewerImg.src = `images/${current.photos[index]}.jpg?v=${PHOTO_VERSION}`;
+    viewerImg.alt = `${current.title} 写真${index + 1}`;
+    document.getElementById('viewerCount').textContent = `${index + 1} / ${current.photos.length}`;
+  };
+  const openViewer = (i) => { showPhoto(i); viewer.classList.add('open'); document.getElementById('viewerClose').focus(); };
+  const closeViewer = () => { viewer.classList.remove('open'); grid.querySelector(`[data-i="${index}"]`)?.focus(); };
+
+  document.querySelectorAll('.work-open').forEach(btn =>
+    btn.addEventListener('click', () => openGallery(btn.dataset.photos, btn)));
+  grid.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b) openViewer(Number(b.dataset.i));
+  });
+  document.getElementById('galleryClose').addEventListener('click', closeGallery);
+  gallery.addEventListener('click', e => { if (e.target === gallery) closeGallery(); });
+  document.getElementById('viewerClose').addEventListener('click', closeViewer);
+  document.getElementById('viewerPrev').addEventListener('click', () => showPhoto(index - 1));
+  document.getElementById('viewerNext').addEventListener('click', () => showPhoto(index + 1));
+  viewer.addEventListener('click', e => { if (e.target === viewer) closeViewer(); });
+
+  // ブログ記事：新しい記事はこの一覧のいちばん上に書き足してください
+  //   date  … 日付（例 '2026.11.12'）
+  //   title … タイトル
+  //   photo … 記事の先頭に出す写真のファイル名（images フォルダ内。なければ '' のまま）
+  //   body  … 本文。段落ごとに '…', で区切る。途中に写真を入れるときは { photo: 'ファイル名' }, と書く
+  //   一覧のカードには photo の写真、なければ本文中の最初の写真が出ます
+  const posts = [
+    {
+      date: '2026.11.12',
+      title: 'ホームページを公開しました',
+      photo: '',
+      body: [
+        '徳永悠二建築設計事務所のホームページを公開しました。',
+        'これまでに担当したプロジェクトや、設計・監理料、業務の流れなどを掲載しています。',
+        'このブログでは、日常や日々の設計の様子、現場のことなどをお伝えしていきます。どうぞよろしくお願いいたします。',
+        { photo: 'blog-yomo.jpg' },
+        '2025年にお迎えしたサビ猫「よも」です。',
+      ],
+    },
+  ];
+  const BLOG_SHOW = 3; // 最初に並べる記事の数
+
+  const blogList = document.getElementById('blogList');
+  const blogMore = document.getElementById('blogMore');
+  const article = document.getElementById('article');
+  let articleOpener = null;
+  const escapeHtml = t => t.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  const photoUrl = name => `images/${name}?v=${PHOTO_VERSION}`;
+  const renderBlog = (all) => {
+    const shown = all ? posts : posts.slice(0, BLOG_SHOW);
+    blogList.innerHTML = shown.map((p, i) => {
+      const thumb = p.photo || (p.body.find(b => typeof b === 'object') || {}).photo;
+      const first = p.body.find(b => typeof b === 'string') || '';
+      return `
+      <li><button type="button" data-post="${i}">
+        ${thumb ? `<span class="blog-thumb" style="display:block"><img src="${photoUrl(thumb)}" alt="" loading="lazy"></span>` : ''}
+        <span class="blog-text">
+          <span class="blog-date">${escapeHtml(p.date)}</span>
+          <span class="blog-title">${escapeHtml(p.title)}</span>
+          <span class="blog-excerpt">${escapeHtml(first.slice(0, 60))}${first.length > 60 ? '…' : ''}</span>
+        </span>
+      </button></li>`;
+    }).join('');
+    document.getElementById('blogEmpty').hidden = posts.length > 0;
+    blogMore.hidden = all || posts.length <= BLOG_SHOW;
+  };
+  const openArticle = (i, btn) => {
+    const p = posts[i];
+    articleOpener = btn;
+    document.getElementById('articleDate').textContent = p.date;
+    document.getElementById('articleTitle').textContent = p.title;
+    document.getElementById('articleBody').innerHTML =
+      (p.photo ? `<img src="${photoUrl(p.photo)}" alt="${escapeHtml(p.title)}">` : '') +
+      p.body.map(b => typeof b === 'object'
+        ? `<img class="inline" src="${photoUrl(b.photo)}" alt="" loading="lazy">`
+        : `<p>${escapeHtml(b)}</p>`).join('');
+    article.scrollTop = 0;
+    article.classList.add('open');
+    lockScroll(true);
+    document.getElementById('articleClose').focus();
+  };
+  const closeArticle = () => {
+    article.classList.remove('open');
+    lockScroll(false);
+    if (articleOpener) articleOpener.focus();
+  };
+  renderBlog(false);
+  blogList.addEventListener('click', e => {
+    const b = e.target.closest('[data-post]');
+    if (b) openArticle(Number(b.dataset.post), b);
+  });
+  blogMore.addEventListener('click', () => renderBlog(true));
+  document.getElementById('articleClose').addEventListener('click', closeArticle);
+  article.addEventListener('click', e => { if (e.target === article) closeArticle(); });
+
+  // キーボード操作（Esc で閉じる、←→ で写真送り）
+  document.addEventListener('keydown', e => {
+    if (article.classList.contains('open')) {
+      if (e.key === 'Escape') closeArticle();
+    } else if (viewer.classList.contains('open')) {
+      if (e.key === 'Escape') closeViewer();
+      if (e.key === 'ArrowLeft') showPhoto(index - 1);
+      if (e.key === 'ArrowRight') showPhoto(index + 1);
+    } else if (gallery.classList.contains('open') && e.key === 'Escape') {
+      closeGallery();
+    }
+  });
+
+  // スマホのスワイプで写真送り
+  let touchX = null;
+  viewer.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) showPhoto(index + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
